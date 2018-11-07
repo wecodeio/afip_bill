@@ -9,8 +9,8 @@ module AfipBill
   class Generator
     attr_reader :afip_bill, :bill_name, :bill_type, :user, :line_items, :header_text
     
-    HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_header.html.erb'.freeze
-    FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_footer.html.erb'.freeze
+    HEADER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_header.html.erb'.freeze
+    FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
     BRAVO_CBTE_TIPO = {
       '01' => { directory: 'bills', template: 'factura_a', doc_name: 'factura', doc_type: 'a' },
       '06' => { directory: 'bills', template: 'factura_b', doc_name: 'factura', doc_type: 'b' },
