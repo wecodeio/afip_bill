@@ -159,7 +159,7 @@
   </div>
 
   <div style="left:263.78px;top:22.31px" class="cls_003"><span class="cls_003"><%= header_text %></span></div>
-  <div style="left:289.84px;top:43.90px" class="cls_009"><span class="cls_009"> <%= bill_type.upcase %> </span></div>
+  <div style="left:289.84px;top:48.90px" class="cls_009"><span class="cls_009"> <%= bill_type.upcase %> </span></div>
   <div style="left:341.00px;top:53.33px" class="cls_004"><span class="cls_004"><%= bill_name.upcase %></span></div>
   <% if AfipBill.configuration[:logo_path].present? %>
     <div style="left:20.00px;top:48.33px" class="cls_004">
@@ -190,10 +190,10 @@
   <div style="left:232.44px;top:169.29px" class="cls_005"><span class="cls_005">Hasta:</span><span class="cls_007"><%= Date.parse(afip_bill["fch_serv_hasta"]).strftime("%d/%m/%Y") %></span></div>
   <div style="left:362.96px;top:169.29px" class="cls_005"><span class="cls_005">Fecha de Vto. para el pago:</span></div>
   <div style="left:495.00px;top:169.29px" class="cls_007"><span class="cls_007"><%= Date.parse(afip_bill["fch_serv_hasta"]).strftime("%d/%m/%Y") %></span></div>
-  <div style="left:21.00px;top:189.59px" class="cls_002"><span class="cls_002">CUIT:</span></div>
-  <div style="left:52.00px;top:189.59px" class="cls_006"><span class="cls_006"><%= afip_bill["doc_num"] %></span></div>
-  <div style="left:205.97px;top:189.59px" class="cls_002"><span class="cls_002">Apellido y Nombre / Razón Social:</span></div>
-  <div style="left:354.00px;top:190.63px" class="cls_008"><span class="cls_008"><%= bill_type == "a" ? user.company_name : user.owner_name %></span></div>
+  <div style="left:21.00px;top:192.59px" class="cls_002"><span class="cls_002">CUIT:</span></div>
+  <div style="left:52.00px;top:192.59px" class="cls_006"><span class="cls_006"><%= afip_bill["doc_num"] %></span></div>
+  <div style="left:205.97px;top:192.59px" class="cls_002"><span class="cls_002">Apellido y Nombre / Razón Social:</span></div>
+  <div style="left:354.00px;top:192.59px" class="cls_008"><span class="cls_008"><%= bill_type == "a" ? user.company_name : user.owner_name %></span></div>
   <div style="left:21.00px;top:208.59px" class="cls_002"><span class="cls_002">Condición frente al IVA:</span></div>
   <div style="left:131.00px;top:208.59px" class="cls_006"><span class="cls_006"><%= user.tax_category %></span></div>
   <div style="width:200px;left:262.48px;top:208.59px" class="cls_002"><span class="cls_002">Domicilio Comercial:</span><span style="width:200px;" class="cls_008"> <%= user.address %></span></div>
