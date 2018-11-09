@@ -44,14 +44,23 @@ module AfipBill
       @barcode ||= Barby::Code25Interleaved.new(code_numbers)
     end
 
+    def pdfkit_options
+      {
+        zoom: '1.65', 
+        'margin-bottom': '0.05in', 
+        'margin-top': '0.05in', 
+        'margin-left': '0.2in', 
+        'margin-right': '0.2in'
+      }
+    end
+
     def generate_pdf_file
       tempfile = Tempfile.new("afip_bill.pdf")
-
-      PDFKit.new(template).to_file(tempfile.path)
+      PDFKit.new(template, pdfkit_options).to_file(tempfile.path)
     end
 
     def generate_pdf_string
-      PDFKit.new(template).to_pdf
+      PDFKit.new(template, pdfkit_options).to_pdf
     end
 
     private
