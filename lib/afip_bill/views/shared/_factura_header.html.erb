@@ -166,7 +166,11 @@
       <img src='file://<%= AfipBill.configuration[:logo_path] %>' width="100px" height="40px">
     </div>
   <% else %>
-    <div style="left:20.00px;top:48.33px" class="cls_003"><span class="cls_304"> <%= AfipBill.configuration[:header_business_name] || AfipBill.configuration[:business_name] %></span></div>
+    <div style="left:21.00px;top:53.33px; max-width:250px;" class="cls_003">
+      <span class="cls_304">
+        <%= AfipBill.configuration[:header_business_name] || AfipBill.configuration[:business_name] %>
+      </span>
+    </div>
   <% end %>
   <div style="left:282.94px;top:72.04px" class="cls_010"><span class="cls_010">COD. <%= afip_bill["cbte_tipo"] %></span></div>
   <div style="left:341.00px;top:84.24px" class="cls_002"><span class="cls_002">Punto de Venta:</span></div>
