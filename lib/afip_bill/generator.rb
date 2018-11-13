@@ -46,10 +46,10 @@ module AfipBill
 
     def pdfkit_options
       {
-        zoom: '1.65', 
-        'margin-bottom': '0.05in', 
-        'margin-top': '0.05in', 
-        'margin-left': '0.2in', 
+        zoom: '1.65',
+        'margin-bottom': '0.05in',
+        'margin-top': '0.05in',
+        'margin-left': '0.2in',
         'margin-right': '0.2in'
       }
     end

@@ -20,7 +20,7 @@
   <div style="left:360.54px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.imp_unitario.to_s.tr(".", ",") %></span></div>
   <div style="left:398.43px;top:<%= top %>px" class="cls_008"><span class="cls_008">0,00</span></div>
   <div style="width:60px;left:70.4%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.imp_total_unitario.round(2).to_s.tr(".", ",") %></span></div>
-  <div style="left:490.00px;top:<%= top %>px" class="cls_008"><span class="cls_008">21%</span></div>
+  <div style="left:490.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.iva %>%</span></div>
   <div style="width:60px;left:87%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.imp_total_unitario_con_iva.round(2).to_s.tr(".", ",") %></span></div>
   <% top += 25 %>
 <% end %>
@@ -45,11 +45,11 @@
 <div style="left:18.00px;top:589.63px" class="cls_008"><span class="cls_008">Impuestos Municipales</span></div>
 <div style="left:331.43px;top:589.63px" class="cls_008"><span class="cls_008">0,00</span></div>
 <div style="left:456.98px;top:577.41px" class="cls_002"><span class="cls_002">IVA 21%: $</span></div>
-<div style="width:60px;left:86.6%;top:577.41px" class="cls_002"><span style="position:absolute;right:0" class="cls_002"><%= afip_bill["imp_iva"] %></span></div>
+<div style="width:60px;left:86.6%;top:577.41px" class="cls_002"><span style="position:absolute;right:0" class="cls_002"><%= afip_bill["imp_iva_21"] || '0,00' %></span></div>
 <div style="left:186.97px;top:602.91px" class="cls_006"><span class="cls_006">Importe Otros Tributos: $</span></div>
 <div style="left:329.49px;top:602.91px" class="cls_006"><span class="cls_006">0,00</span></div>
-<div style="left:449.48px;top:590.41px" class="cls_002"><span class="cls_002">IVA 10.5%: $</span></div>
-<div style="left:557.49px;top:590.41px" class="cls_002"><span class="cls_002">0,00</span></div>
+<div style="width:60px;left:449.48px;top:590.41px" class="cls_002"><span class="cls_002">IVA 10.5%: $</span></div>
+<div style="width:60px;left:86.6%;top:590.41px" class="cls_002"><span style="position:absolute;right:0" class="cls_002"><%= afip_bill["imp_iva_105"] || '0,00' %></span></div>
 <div style="left:461.99px;top:603.41px" class="cls_002"><span class="cls_002">IVA 5%: $</span></div>
 <div style="left:557.49px;top:603.41px" class="cls_002"><span class="cls_002">0,00</span></div>
 <div style="left:454.48px;top:616.41px" class="cls_002"><span class="cls_002">IVA 2.5%: $</span></div>
