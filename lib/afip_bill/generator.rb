@@ -20,9 +20,12 @@ module AfipBill
       '07' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de débito', doc_type: 'b' },
     }.freeze
     IVA = 21.freeze
+    DEFAULTS = {
+      "cond_venta" => 'Otra'
+    }.freeze
 
     def initialize(bill, user, line_items = [], header_text = 'ORIGINAL')
-      @afip_bill = JSON.parse(bill)
+      @afip_bill = DEFAULTS.merge(JSON.parse(bill))
       @user = user
       @bill_name = bill_name_s
       @bill_type = bill_type_s
