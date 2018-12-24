@@ -13,11 +13,14 @@ module AfipBill
     FOOTER_PATH = File.dirname(__FILE__) + '/views/shared/_factura_footer.html.erb'.freeze
     BRAVO_CBTE_TIPO = {
       '01' => { directory: 'bills', template: 'factura_a', doc_name: 'factura', doc_type: 'a' },
-      '06' => { directory: 'bills', template: 'factura_b', doc_name: 'factura', doc_type: 'b' },
-      '03' => { directory: 'notes', template: 'nota_a', doc_name: 'Nota de crédito', doc_type: 'a' },
-      '08' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de crédito', doc_type: 'b' },
       '02' => { directory: 'notes', template: 'nota_a', doc_name: 'Nota de débito', doc_type: 'a' },
+      '03' => { directory: 'notes', template: 'nota_a', doc_name: 'Nota de crédito', doc_type: 'a' },
+      '06' => { directory: 'bills', template: 'factura_b', doc_name: 'factura', doc_type: 'b' },
       '07' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de débito', doc_type: 'b' },
+      '08' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de crédito', doc_type: 'b' },
+      '11' => { directory: 'bills', template: 'factura_b', doc_name: 'factura', doc_type: 'c' },
+      '12' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de débito', doc_type: 'c' },
+      '13' => { directory: 'notes', template: 'nota_b', doc_name: 'Nota de crédito', doc_type: 'c' }
     }.freeze
     IVA = 21.freeze
     DEFAULTS = {
