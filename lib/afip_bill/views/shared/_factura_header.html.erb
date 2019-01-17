@@ -163,7 +163,7 @@
 
   <div style="left:263.78px;top:22.31px" class="cls_003"><span class="cls_003"><%= header_text %></span></div>
   <div style="left:289.84px;top:48.90px" class="cls_009"><span class="cls_009"> <%= bill_type.upcase %> </span></div>
-  <div style="left:341.00px;top:53.33px" class="cls_004"><span class="cls_004"><%= bill_name.upcase %></span></div>
+  <div style="left:341.00px;top:53.33px; width:230px;" class="cls_004"><span class="cls_004"><%= bill_name.upcase %></span></div>
   <% if AfipBill.configuration[:logo_path].present? %>
     <div style="left:20.00px;top:48.33px" class="cls_004">
       <img src='file://<%= AfipBill.configuration[:logo_path] %>' width="250px" height="40px">
