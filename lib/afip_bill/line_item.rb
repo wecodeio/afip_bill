@@ -1,12 +1,13 @@
 module AfipBill
   class LineItem
-    attr_reader :name, :quantity, :imp_unitario, :iva    
+    attr_reader :name, :quantity, :imp_unitario, :iva, :code
 
-    def initialize(name, quantity, imp_unitario, iva=21)
+    def initialize(name, quantity, imp_unitario, iva=21, code=nil)
       @name = name
       @quantity = quantity
       @imp_unitario = imp_unitario
       @iva = iva
+      @code = code
     end
 
     def imp_total_unitario

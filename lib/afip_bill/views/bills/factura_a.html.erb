@@ -12,8 +12,10 @@
 <div style="left:492.17px;top:267.68px" class="cls_011"><span class="cls_011">IVA</span></div>
 
 <% top = 283 %>
-<% @line_items.each_with_index do |line_item, index| %>
-  <div style="left:18.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= (index + 1).to_s.rjust(3, "0") %></span></div>
+<% @line_items.each_with_index do |line_item, index| 
+  item_code = line_item.code || index + 1
+  %>
+  <div style="left:18.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= item_code.to_s.rjust(3, "0") %></span></div>
   <div style="left:57.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.name %></span></div>
   <div style="width:60px;left:290.30px;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
   <!--<div style="left:288.30px;top:<%= top %>px" class="cls_012"><span class="cls_012">unidades</span></div>-->
