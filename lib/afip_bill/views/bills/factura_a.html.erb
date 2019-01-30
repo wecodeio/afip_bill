@@ -14,16 +14,20 @@
 <% top = 283 %>
 <% @line_items.each_with_index do |line_item, index| 
   item_code = line_item.code || (index + 1).to_s.rjust(3, "0")
+  precio_unitario = ('%.2f' % line_item.imp_unitario).to_s.tr(".", ",") 
+  subtotal = ('%.2f' % line_item.imp_total_unitario).to_s.tr(".", ",")
+  alic_iva = ('%.2f' % line_item.iva).to_s.tr(".", ",")
+  subtotal_con_iva = ('%.2f' % line_item.imp_total_unitario_con_iva).to_s.tr(".", ",")
   %>
   <div style="left:18.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= item_code %></span></div>
   <div style="left:57.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.name %></span></div>
   <div style="width:60px;left:290.30px;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
   <!--<div style="left:288.30px;top:<%= top %>px" class="cls_012"><span class="cls_012">unidades</span></div>-->
-  <div style="left:413px;top:<%= top %>px" class="cls_008"><span class="cls_008" style="position:absolute;right:0"><%= line_item.imp_unitario.to_s.tr(".", ",") %></span></div>
+  <div style="left:413px;top:<%= top %>px" class="cls_008"><span class="cls_008" style="position:absolute;right:0"><%= precio_unitario %></span></div>
   <!--<div style="left:398.43px;top:<%= top %>px" class="cls_008"><span class="cls_008">0,00</span></div>-->
-  <div style="width:60px;left:70.4%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.imp_total_unitario.round(2).to_s.tr(".", ",") %></span></div>
-  <div style="left:490.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.iva %>%</span></div>
-  <div style="width:60px;left:87%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.imp_total_unitario_con_iva.round(2).to_s.tr(".", ",") %></span></div>
+  <div style="width:60px;left:70.4%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal %></span></div>
+  <div style="left:490.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= alic_iva %>%</span></div>
+  <div style="width:60px;left:87%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal_con_iva %></span></div>
   <% top += 15 %>
 <% end %>
 
