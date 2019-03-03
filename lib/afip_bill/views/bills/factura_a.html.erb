@@ -1,33 +1,33 @@
 <%= @template_header %>
 
-<div style="left:484.19px;top:259.63px" class="cls_011"><span class="cls_011">Alicuota</span></div>
 <div style="left:19.00px;top:263.04px" class="cls_010"><span class="cls_010">Código</span></div>
-<div style="left:59.00px;top:263.04px" class="cls_010"><span class="cls_010">Producto / Servicio</span></div>
-<div style="left:325.77px;top:263.04px" class="cls_010"><span class="cls_010">Cant.</span></div>
+<div style="left:80.00px;top:263.04px" class="cls_010"><span class="cls_010">Producto / Servicio</span></div>
+<div style="left:390px;top:263.04px" class="cls_010"><span class="cls_010">Cant.</span></div>
 <!--<div style="left:285.77px;top:263.66px" class="cls_011"><span class="cls_011">U. medida</span></div>-->
-<div style="left:365.05px;top:263.66px" class="cls_011"><span class="cls_011">Precio Unit.</span></div>
+<div style="left:420.05px;top:263.66px" class="cls_011"><span class="cls_011">Precio Unit.</span></div>
 <!--<div style="left:388.47px;top:263.66px" class="cls_011"><span class="cls_011">% Bonif</span></div>-->
-<div style="left:434.50px;top:263.66px" class="cls_011"><span class="cls_011">Subtotal</span></div>
-<div style="left:524.27px;top:263.66px" class="cls_011"><span class="cls_011">Subtotal c/IVA</span></div>
-<div style="left:492.17px;top:267.68px" class="cls_011"><span class="cls_011">IVA</span></div>
+<div style="left:468.50px;top:263.66px" class="cls_011"><span class="cls_011">Subtotal</span></div>
+<div style="left:508.19px;top:261px" class="cls_011"><span class="cls_011">Alicuota <br/> IVA</span></div>
+<div style="left:544.27px;top:261px" class="cls_011"><span class="cls_011">Subtotal <br/> c/IVA</span></div>
 
 <% top = 283 %>
 <% @line_items.each_with_index do |line_item, index| 
   item_code = line_item.code || (index + 1).to_s.rjust(3, "0")
+  small_code = item_code.length > 8
   precio_unitario = ('%.2f' % line_item.imp_unitario).to_s.tr(".", ",") 
   subtotal = ('%.2f' % line_item.imp_total_unitario).to_s.tr(".", ",")
   alic_iva = ('%.2f' % line_item.iva).to_s.tr(".", ",")
   subtotal_con_iva = ('%.2f' % line_item.imp_total_unitario_con_iva).to_s.tr(".", ",")
   %>
-  <div style="left:18.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= item_code %></span></div>
-  <div style="left:57.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.name %></span></div>
-  <div style="width:60px;left:290.30px;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
+  <div style="word-break: break-word; width:52px; left:18.00px;top:<%= top %>px;" class="cls_008"><span class="cls_008" style="<%= "font-size:5px" if small_code %>"><%= item_code %></span></div>
+  <div style="left:80.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= line_item.name %></span></div>
+  <div style="width:29px;left:388px;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= line_item.quantity.to_s.tr(".", ",") %> </span></div>
   <!--<div style="left:288.30px;top:<%= top %>px" class="cls_012"><span class="cls_012">unidades</span></div>-->
-  <div style="left:413px;top:<%= top %>px" class="cls_008"><span class="cls_008" style="position:absolute;right:0"><%= precio_unitario %></span></div>
+  <div style="width:40px; left:420px;top:<%= top %>px" class="cls_008"><span class="cls_008" style="position:absolute;right:0"><%= precio_unitario %></span></div>
   <!--<div style="left:398.43px;top:<%= top %>px" class="cls_008"><span class="cls_008">0,00</span></div>-->
-  <div style="width:60px;left:70.4%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal %></span></div>
-  <div style="left:490.00px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= alic_iva %>%</span></div>
-  <div style="width:60px;left:87%;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal_con_iva %></span></div>
+  <div style="width:40px;left:462px;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal %></span></div>
+  <div style="left:508px;top:<%= top %>px" class="cls_008"><span class="cls_008"><%= alic_iva %>%</span></div>
+  <div style="width:40px;left:540;top:<%= top %>px" class="cls_008"><span style="position:absolute;right:0" class="cls_008"><%= subtotal_con_iva %></span></div>
   <% top += 15 %>
 <% end %>
 
