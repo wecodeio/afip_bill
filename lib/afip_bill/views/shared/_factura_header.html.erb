@@ -226,6 +226,10 @@
   
   <div style="left:21.00px;top:229.91px; width: 170px;" class="cls_002"><span class="cls_002">Condición de venta:</span><span class="cls_008"> <%= afip_bill["cond_venta"] %></span></div>
 
+  <% if afip_bill["header_obs"].present? %>
+    <div style="left:262.48px;top:229.91px; width: 250px;" class="cls_002"><span class="cls_002"><%= afip_bill["header_obs"].split(":").first %>:</span><span class="cls_008"> <%= afip_bill["header_obs"].split(":").second %></span></div>
+  <% end %>
+  
   <%if afip_bill["related_invoice"].present? %>
     <div style="left:262.48px;top:229.91px; width: 40px;" class="cls_002">
       <span class="cls_002">Fac.  <%= afip_bill["related_invoice"]["type"].upcase %>:</span>
