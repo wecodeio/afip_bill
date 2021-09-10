@@ -16,7 +16,8 @@ module AfipBill
       ingresos_brutos: nil,
       iva: nil,
       sale_point: nil,
-      logo_path: nil
+      logo_path: nil,
+      invoice_discounts_mode: nil
     }
   end
 end
