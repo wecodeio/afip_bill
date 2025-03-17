@@ -1,8 +1,8 @@
 require "json"
 require "date"
 require "afip_bill/check_digit"
-require "barby/barcode/code_25_interleaved"
-require "barby/outputter/html_outputter"
+#require "barby/barcode/code_25_interleaved"
+#require "barby/outputter/html_outputter"
 require "pdfkit"
 
 module AfipBill
@@ -46,9 +46,9 @@ module AfipBill
       BRAVO_CBTE_TIPO[afip_bill["cbte_tipo"]][:doc_type]
     end
 
-    def barcode
-      @barcode ||= Barby::Code25Interleaved.new(code_numbers)
-    end
+    #def barcode
+    #  @barcode ||= Barby::Code25Interleaved.new(code_numbers)
+    #end
 
     def pdfkit_options
       {
